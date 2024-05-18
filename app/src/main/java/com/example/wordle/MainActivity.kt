@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     private val listWords = listOf(
         "apple", "house", "table", "chair", "clock", "phone", "plant", "dress", "spoon",
         "cloud", "grass", "bread", "snake", "music", "pizza", "beach", "river", "horse",
-        "banana", "piano", "shoes", "light", "lemon", "brush", "boots", "movie", "radio",
-        "glass", "candy", "guitar"
+        "grape", "piano", "shoes", "light", "lemon", "brush", "boots", "movie", "radio",
+        "glass", "candy", "flute"
     )
     private val wordleWord = listWords.random().toUpperCase()
     private val targetWord = wordleWord
