@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         "grape", "piano", "shoes", "light", "lemon", "brush", "boots", "movie", "radio",
         "glass", "candy", "flute"
     )
-    private val wordleWord = listWords.random().toUpperCase()
-    private val targetWord = wordleWord
+    private var wordleWord = listWords.random().toUpperCase()
+    private var targetWord = wordleWord
     private var currentAttempt = 0
     private var inputText = ""
 
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         val editText = findViewById<EditText>(R.id.editText)
         val button = findViewById<Button>(R.id.button)
+        val restartButton = findViewById<Button>(R.id.restartButton)
         val resultTextView = findViewById<TextView>(R.id.resultTextView)
 
         val squares = Array(5) { i ->
@@ -72,7 +73,6 @@ class MainActivity : AppCompatActivity() {
                     square.setBackgroundColor(Color.GREEN)
                 } else if (targetWord.contains(letter, ignoreCase = true)) {
                     square.setBackgroundColor(Color.MAGENTA)
-                } else {
                 }
             }
 
@@ -86,5 +86,30 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        restartButton.setOnClickListener {
+            resetGame(editText, resultTextView, squares)
+        }
+    }
+
+    private fun resetGame(editText: EditText, resultTextView: TextView, squares: Array<Array<TextView>>) {
+        wordleWord = listWords.random().toUpperCase()
+        targetWord = wordleWord
+        currentAttempt = 0
+        inputText = ""
+
+        editText.text.clear()
+        resultTextView.text = ""
+
+        val color = Color.parseColor("#A9A9A9")
+
+        for (i in squares.indices) {
+            for (j in squares[i].indices) {
+                squares[i][j].text = ""
+                squares[i][j].setBackgroundColor(color)
+            }
+        }
+
+
     }
 }
