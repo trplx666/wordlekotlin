@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         val editText = findViewById<EditText>(R.id.editText)
         val button = findViewById<Button>(R.id.button)
-        val restartButton = findViewById<Button>(R.id.restartButton)
+        val restartButton = findViewById<ImageButton>(R.id.restartButton)  // изменено на ImageButton
         val resultTextView = findViewById<TextView>(R.id.resultTextView)
 
         val squares = Array(5) { i ->
@@ -109,7 +110,5 @@ class MainActivity : AppCompatActivity() {
                 squares[i][j].setBackgroundColor(color)
             }
         }
-
-
     }
 }
